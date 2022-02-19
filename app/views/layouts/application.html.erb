@@ -7,21 +7,24 @@
     <%= csp_meta_tag %>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <%= javascript_pack_tag 'Index' %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
   <body>
-    <main class="main" id="top">
-      <div class="container" data-layout="container">
-        <%= render "partials/sidebar" %>
-        <div class="content">
-          <%= render "partials/topbar" %>
-          <%= yield %>
+    <% if user_signed_in? %>
+      <main class="main" id="top">
+        <div class="container" data-layout="container">
+          <%= render "partials/sidebar" %>
+          <div class="content">
+            <%= render "partials/topbar" %>
+            <%= yield %>
+          </div>
         </div>
-      </div>
-    </main>
+      </main>
+    <% else %>
+      <%= yield %>
+    <% end %>
   </body>
 </html>
