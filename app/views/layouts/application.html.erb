@@ -19,7 +19,9 @@
           <%= render "partials/sidebar" %>
           <div class="content">
             <%= render "partials/topbar" %>
-            <%= yield %>
+            <div class="content">
+              <%= yield %>
+            </div>
           </div>
         </div>
       </main>
